@@ -46,4 +46,9 @@ function Person(){
     alert("el mayor es "+nombre+" con "+mayor+" años");
 }
 //pregunta 4
-
+function aleat(){
+        var alea= Math.floor(Math.random()*(99-1))+1;
+        var alea2= Math.floor(Math.random()*(99-1))+1;
+        var alea3= Math.floor(Math.random()*(99-1))+1;
+        alert(alea+" "+alea2+" "+alea3);
+}
