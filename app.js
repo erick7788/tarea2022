@@ -146,6 +146,7 @@ function piedrapapel(){
         }
     }
 }
+//pregunta 10
 function precioIva(){
     var precio=document.getElementById("precio").value;
     var precioI=parseInt(precio);
