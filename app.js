@@ -157,3 +157,100 @@ function precioIva(){
     alert("El pago Total debera ser: "+precioTotal);
     pregunta10.reset();
 }
+//Pregunta 11
+let Users=[{cuenta:'erick'},{contraceña:'erick'}];
+function validar(){
+    setTimeout(function(){
+        Formulario.Rboton.disabled = false;
+        Formulario.Rboton.value = "Enviar";
+    },1000);
+}
+function confirmEnviar() {
+    Formulario.Rboton.disabled = true; 
+    Formulario.Rboton.value = "Enviando...";
+    var nombre=document.getElementById("nombre").value;
+    var cuenta=document.getElementById("account").value;
+    var contraceña=document.getElementById("contraceña").value;
+    validar();
+    return false;
+  }
+  Formulario.Rboton.addEventListener("click", function(){ 
+      return confirmEnviar();
+  }, false);
+//pregunta 12
+function Mreloj(){
+    var actual=new Date();
+    var hora=actual.getHours();
+    var min=actual.getMinutes();
+    var sec=actual.getSeconds();
+    var salida= hora + " : "+min+" : "+sec;
+    document.Freloj.reloj.value=salida;
+    setTimeout("Mreloj()",1000);
+}
+//pregunta 13
+function Cfecha(){
+    var fecha=document.getElementById("fecha").value;
+    var años="";
+    var actual=new Date();
+    var añoA=actual.getFullYear();
+    var añoT=0;
+    for(var i=0;i<4;i++){
+        años = años.concat(fecha.charAt(i));
+    }
+    añoT=añoA-parseInt(años);
+    if(añoT==1){
+        alert("Paso: "+añoT+" año");
+    }
+    else{
+        alert("Pasaron: "+añoT+" años");
+    }
+}
+//pregunta 14
+function Consonante(){
+    var text=document.getElementById("Palab").value;
+    const count1 = text.match(/[aeiou]/gi).length;
+    const count2=text.match(/[bcdfghjklmnpqrstvxyz]/gi).length;
+    alert(text+" tiene "+count1+" vocales y "+count2+" consonantes");
+    pregunta14.reset();
+}
+//pregunta 15
+let Nuser=["edson","erick","carlos","juan","marco"];
+function Vnombre(){
+    var nombre=document.getElementById("nombreE").value;
+    for(var i=0;i<Nuser.length;i++){
+        if(nombre==Nuser[i]){
+            alert("Verdadero");
+            pregunta15.reset();
+            return;
+        }
+    }
+    alert("falso");
+    pregunta15.reset();
+}
+//pregunta 16
+let arreglo=[];
+var tam=0;
+function Earreglo(){
+    arreglo[tam]=document.getElementById("Arreglo").value;
+    tam++;
+    pregunta16.reset();
+}
+function Oarreglo(){
+    for(var i=0;i<arreglo.length;i++){
+        var count=0;
+        for(var j=0;j<arreglo.length;j++){
+            if(arreglo[i]==arreglo[j]){
+                count++;
+                if(count>1){
+                    arreglo.splice(j,1);
+                }
+            }
+        }
+    }
+    var sali="";
+    for(var i=0;i<arreglo.length;i++){
+            sali = sali +" "+ arreglo[i];
+    }
+    document.pregunta16.salidaA.value=sali;
+}
+//pregunta 17
