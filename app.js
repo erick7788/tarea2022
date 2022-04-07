@@ -287,3 +287,101 @@ function Oarreglo2(){
     document.pregunta17.salidaA3.value=sali2;
 }
 //pregunta 18
+function listGifts(letter) {
+    const arrCarta = letter.split(" ");
+    return arrCarta.filter((regalo) => {
+      let value = regalo.startsWith("_")
+      if (value !== true && regalo !=="") return regalo !== value
+    })
+    .reduce((contador, regalo) => {
+      contador[regalo] = (contador[regalo] || 0) + 1;
+      return contador
+    }, {});
+}
+function regalos(){
+    const entrada=document.getElementById("regaloA").value;
+    const regalo=listGifts(entrada);
+    console.log(regalo);
+    pregunta18.reset();
+}
+//pregunta 19
+function iterate(obj) {
+    let res = [];
+    for (let property in obj) {
+      const child = obj[property];
+      if (typeof child === 'object') {
+        res = [...res, ...iterate(child)]
+      }
+      res.push(child);
+    }
+    return res;
+}
+  
+function contains(store, product) {
+    return iterate(store).some((item) => item === product)
+}
+const almacen = {
+        'estanteria1': {
+        'cajon1': {
+        'producto1': 'coca-cola',
+        'producto2': 'fanta',
+        'producto3': 'sprite'
+        }
+    },
+        'estanteria2': {
+        'cajon1': 'vacio',
+        'cajon2': {
+        'producto1': 'pantalones',
+        'producto2': 'camiseta'
+        }
+    }
+}
+const otroAlmacen = {
+    'baul': {
+    'fondo': {
+    'objeto': 'cd-rom',
+    'otro-objeto': 'disquette',
+    'otra-cosa': 'mando'
+        }
+    }
+}
+function Resolv(){
+    document.pregunta19.regalos1.value=contains(almacen, 'camiseta');
+    document.pregunta19.regalos2.value=contains(otroAlmacen, 'gameboy');
+    console.log(contains(almacen, 'camiseta'));
+    console.log(contains(otroAlmacen, 'gameboy'));
+}
+//pregunta 20
+function missingReindeer(ids) {
+    let salida;
+    const aux = [...Array(ids.length).keys()];
+    const res = ids.sort((a, b) => a - b);
+    (JSON.stringify(aux) === JSON.stringify(res))
+      ?
+        salida = res.at(-1) + 1
+      :
+      (
+        res.forEach((_, index, arr) => {
+          if (arr.indexOf(index) === -1) {
+            salida = index;
+          }
+        })
+    )
+    return salida;
+}
+function Resol(){
+    document.pregunta20.renos1.value=missingReindeer([0, 2, 3]);
+    document.pregunta20.renos2.value=missingReindeer([5, 6, 1, 2, 3, 7, 0])
+    document.pregunta20.renos3.value=missingReindeer([0,1])
+    document.pregunta20.renos4.value=missingReindeer([3,0,1])
+    document.pregunta20.renos5.value=missingReindeer([9,2,3,5,6,4,7,0,1])
+    document.pregunta20.renos6.value=missingReindeer([0])
+    console.log(missingReindeer([0, 2, 3]))
+    console.log(missingReindeer([5, 6, 1, 2, 3, 7, 0]))
+    console.log(missingReindeer([0,1]))
+    console.log(missingReindeer([3,0,1]))
+    console.log(missingReindeer([9,2,3,5,6,4,7,0,1]))
+    console.log(missingReindeer([0]))
+    
+}
+  
