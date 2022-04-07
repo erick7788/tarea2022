@@ -254,3 +254,36 @@ function Oarreglo(){
     document.pregunta16.salidaA.value=sali;
 }
 //pregunta 17
+let arreglo1=[];
+var tama=0;
+function Earreglo2(){
+    arreglo1[tama]=document.getElementById("Arreglo2").value;
+    tama++;
+    pregunta17.reset();
+}
+function Oarreglo2(){
+    var pares=[];
+    var impares=[];
+    var posicion1=0;
+    var posicion2=0;
+    for(var i=0;i<arreglo1.length;i++){
+        if(arreglo1[i]%2==0){
+            pares[posicion1]=arreglo1[i];
+            posicion1++;
+        }else{
+            impares[posicion2]=arreglo1[i];
+            posicion2++;
+        }
+    }
+    var sali1="";
+    var sali2="";
+    for(var i=0;i<pares.length;i++){
+        sali1=sali1+" "+pares[i];
+    }
+    for(var i=0;i<impares.length;i++){
+        sali2=sali2+" "+impares[i];
+    }
+    document.pregunta17.salidaA1.value=sali1;
+    document.pregunta17.salidaA3.value=sali2;
+}
+//pregunta 18
